@@ -18,7 +18,6 @@ const numeros = [
     { id: "7", nome: "7" },
     { id: "8", nome: "8" },
     { id: "9", nome: "9" },
-
 ]
 const categoria = [
     { id: "Nenhum", nome: "Nenhum" },
@@ -66,38 +65,30 @@ const Filmesacao = [
 ]
 const comida = [
     { id: "nenhuma", nome: "Nenhuma", preco: 0 },
-    { id: "cb", nome: "Cachorro Quente🌭 - 15R$", preco: 15 },
-    { id: "pp", nome: "Pipoca Pequena🍿 - 10R$", preco: 10 },
-    { id: "pm", nome: "Pipoca Média🍿 - 20R$", preco: 20 },
-    { id: "pg", nome: "Pipoca Grande🍿 - 30R$", preco: 30 },
-    { id: "pgg", nome: "Pipoca Gigante🍿 - 40R$", preco: 40 },
-]
-const adicionais = [
-    { id: "nenhum", nome: "Nenhum", preco: 0 },
-    { id: "fn", nome: "Fini - 8R$ - 90g", preco: 8 },
-    { id: "pc", nome: "Chocolate - 15R$", preco: 15 },
-    { id: "pd", nome: "Caramelo - 15R$", preco: 15 },
-    { id: "pa", nome: "Amor - 20R$", preco: 20 },
+    { id: "cb", nome: "Cachorro Quente🌭 - 14,99R$", preco: 14.99 },
+    { id: "pp", nome: "Pipoca Pequena🍿 - 9,99R$", preco: 9.99 },
+    { id: "pm", nome: "Pipoca Média🍿 - 19,99R$", preco: 19.99 },
+    { id: "pg", nome: "Pipoca Grande🍿 - 29,99R$", preco: 29.99 },
+    { id: "pgg", nome: "Pipoca Gigante🍿 - 39,99R$", preco: 39.99 },
 ]
 const bebida = [
     { id: "nenhuma", nome: "Nenhuma", preco: 0 },
-    { id: "cc", nome: "Coca-Cola🥤 - 12R$", preco: 12 },
-    { id: "pp", nome: "Pepsi🥤 - 12R$", preco: 12 },
-    { id: "gr", nome: "Guaraná🥤 - 12R$", preco: 12 },
+    { id: "cc", nome: "Coca-Cola🥤 - 11,99R$", preco: 11.99 },
+    { id: "pp", nome: "Pepsi🥤 - 11,99R$", preco: 11.99 },
+    { id: "gr", nome: "Guaraná🥤 - 11,99R$", preco: 11.99 },
 ]
 
 const combo = [
     { id: "nenhuma", nome: "Nenhuma", preco: 0 },
-    { id: "Combo Classic", nome: "Pipoca Grande(salgada) + Refrigerante(350ml) - 40R$", preco: 40 },
-    { id: "Combo classic Duo", nome: "Pipoca Gigante(salgada ou doce) + Refil + 2 Refrigerante - 60R$", preco: 60 },
-    { id: "Combo Classic Prime", nome: "Pipoca Grande(salgada ou doce) + Balde/Copo personalizado(Copo Refil) - 80R$", preco: 80 },
-    { id: "Combo Classic Supremo ", nome: "Balde Grande personalizado(Refil) (salgada ou doce) + Copo Personalizado - 120R$ ", preco: 120 },
+    { id: "Combo Classic", nome: "Pipoca Grande(salgada) + Refrigerante(350ml) - 49,99R$", preco: 49.99 },
+    { id: "Combo classic Duo", nome: "Pipoca Gigante(salgada ou doce) + Refil + 2 Refrigerante - 69,99R$", preco: 69.99 },
+    { id: "Combo Classic Prime", nome: "Pipoca Grande(salgada ou doce) + Balde/Copo personalizado(Copo Refil) - 99,99R$", preco: 99.99 },
+    { id: "Combo Classic Supremo ", nome: "Balde Gigante personalizado(Refil) (salgada ou doce) + Copo Personalizado - 119,99R$ ", preco: 119.99 },
 ]
 const ingressos = [
-    { id: "inteira", nome: "Inteira", preco: 25 },
-    { id: "meia", nome: "Meia-Entrada", preco: 12 },
+    { id: "inteira", nome: "Inteira - 24,99R$", preco: 24.99 },
+    { id: "meia", nome: "Meia-Entrada - 11,99R$", preco: 11.99 },
 ]
-const assentosSelecionados = []
 
 function preencherOpcoes() {//é chamada na linha 407
     const selectingressos = document.getElementById("ingressos");
@@ -164,12 +155,12 @@ function gerarCategoria() {
 
     if (categoriaSelecionada == "Terror") {
         const categoriaHTML = `
-            <label>Terror:
-            <select id="Filmesterror"></select>
-            </label>
-            <button type="button" onclick="gerarFilme()">Enviar</button><br><br>
+<label>Terror:
+<select id="Filmesterror"></select>
+</label>
+<button type="button" onclick="gerarFilme()">Enviar</button><br><br>
 
-        `;
+`;
         document.getElementById("mostrarcategoria").innerHTML = categoriaHTML;
 
         const selectFilmesterror = document.getElementById("Filmesterror");
@@ -182,13 +173,13 @@ function gerarCategoria() {
         }
     }
     if (categoriaSelecionada == "Aventura") {
-        const categoriaHTML = `  
-            <label>Aventura:
-            <select id="Filmesaventura"></select>
-            </label>
-            <button type="button" onclick="gerarFilme()">Enviar</button><br><br>
+        const categoriaHTML = `
+<label>Aventura:
+<select id="Filmesaventura"></select>
+</label>
+<button type="button" onclick="gerarFilme()">Enviar</button><br><br>
 
-        `;
+`;
         document.getElementById("mostrarcategoria").innerHTML = categoriaHTML;
 
         const selectFilmesaventura = document.getElementById("Filmesaventura");
@@ -201,13 +192,13 @@ function gerarCategoria() {
         }
     }
     if (categoriaSelecionada == "Romance") {
-        const categoriaHTML = `  
-            <label>Romance:
-            <select id="Filmesromance"></select>
-            </label>
-            <button type="button" onclick="gerarFilme()">Enviar</button><br><br>
-            
-        `;
+        const categoriaHTML = `
+<label>Romance:
+<select id="Filmesromance"></select>
+</label>
+<button type="button" onclick="gerarFilme()">Enviar</button><br><br>
+
+`;
         document.getElementById("mostrarcategoria").innerHTML = categoriaHTML;
 
         const selectFilmesromance = document.getElementById("Filmesromance");
@@ -220,12 +211,12 @@ function gerarCategoria() {
         }
     }
     if (categoriaSelecionada == "Comedia") {
-        const categoriaHTML = `  
-            <label>Comédia:
-            <select id="Filmescomedia"></select>
-            </label>
-            <button type="button" onclick="gerarFilme()">Enviar</button><br><br>
-        `;
+        const categoriaHTML = `
+<label>Comédia:
+<select id="Filmescomedia"></select>
+</label>
+<button type="button" onclick="gerarFilme()">Enviar</button><br><br>
+`;
         document.getElementById("mostrarcategoria").innerHTML = categoriaHTML;
 
         const selectFilmescomedia = document.getElementById("Filmescomedia");
@@ -238,12 +229,12 @@ function gerarCategoria() {
         }
     }
     if (categoriaSelecionada == "Drama") {
-        const categoriaHTML = `  
-            <label>Drama:
-            <select id="Filmesdrama"></select>
-            </label>
-            <button type="button" onclick="gerarFilme()">Enviar</button><br><br>
-        `;
+        const categoriaHTML = `
+<label>Drama:
+<select id="Filmesdrama"></select>
+</label>
+<button type="button" onclick="gerarFilme()">Enviar</button><br><br>
+`;
         document.getElementById("mostrarcategoria").innerHTML = categoriaHTML;
 
         const selectFilmesdrama = document.getElementById("Filmesdrama");
@@ -256,12 +247,12 @@ function gerarCategoria() {
         }
     }
     if (categoriaSelecionada == "Acao") {
-        const categoriaHTML = `  
-            <label>Ação:
-            <select id="Filmesacao"></select>
-            </label>
-            <button type="button" onclick="gerarFilme()">Enviar</button><br><br>
-        `;
+        const categoriaHTML = `
+<label>Ação:
+<select id="Filmesacao"></select>
+</label>
+<button type="button" onclick="gerarFilme()">Enviar</button><br><br>
+`;
         document.getElementById("mostrarcategoria").innerHTML = categoriaHTML;
 
         const selectFilmesacao = document.getElementById("Filmesacao");
@@ -478,6 +469,7 @@ function gerarFilme() {
     }
 }
 
+
 preencherOpcoes();
 
 function procurarPorId(lista, idProcurado) {
@@ -503,7 +495,7 @@ function gerarRelatorio() {
     const quantidadeBebida = parseInt(document.getElementById("quantidadeBebida").value);
     const quantidadeCombo = parseInt(document.getElementById("quantidadeCombo").value);
 
-    let filmeSelecionado = "Nenhum filme selecionado";
+    let filmeSelecionado = "Nenhum";
 
     if (categoria == "Terror") {
         if (document.getElementById("Filmesterror")) {
@@ -544,17 +536,18 @@ function gerarRelatorio() {
 
 
     const relatorioHTML = `
-    <h2>Relatório</h2>
-    <p><strong>Categoria:</strong> ${categoria}</p>
-    <p><strong>Filme:</strong> ${filmeSelecionado}</p>
-    <p><strong>Tipos de Ingressos:</strong> ${ingressosSelecionada.nome}</p>
-    <p><strong>Quantidade de ingressos:</strong> ${quantidadeIngressos}</p>
-    <p><strong>Assento(s) Escolhido(s):</strong> ${assentos}</p>
-    <p><strong>Comida:</strong> ${comidaSelecionada.nome} (${quantidadeComida})</p>
-    <p><strong>Bebida:</strong> ${bebidaSelecionada.nome} (${quantidadeBebida})</p>
-    <p><strong>Combo:</strong> ${comboSelecionado.nome} (${quantidadeCombo})</p>
-    <p><strong>Total a pagar:</strong> R$ ${total.toFixed(2)}</p>
-    <p><strong>Obrigado por comprar conosco!</strong></p>
-    `;
+<h2>Relatório</h2>
+<p><strong>Categoria:</strong> ${categoria}</p>
+<p><strong>Filme:</strong> ${filmeSelecionado}</p>
+<p><strong>Tipo(s) de Ingresso(s):</strong> ${ingressosSelecionada.id}</p>
+<p><strong>Quantidade de ingresso(s):</strong> ${quantidadeIngressos}</p>
+<p><strong>Assento(s) Escolhido(s):</strong> ${assentos}</p>
+<p><strong>Comida:</strong> ${comidaSelecionada.nome} (${quantidadeComida})</p>
+<p><strong>Bebida:</strong> ${bebidaSelecionada.nome} (${quantidadeBebida})</p>
+<p><strong>Combo:</strong> ${comboSelecionado.nome} (${quantidadeCombo})</p>
+<p><strong>Total a pagar:</strong> R$ ${total.toFixed(2)}</p>
+<p><strong>Obrigado por comprar conosco!</strong></p>
+`;
     document.getElementById("relatorio").innerHTML = relatorioHTML;
+    document.getElementById("relatorio").style.fontSize = "20px";
 }
