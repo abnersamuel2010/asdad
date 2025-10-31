@@ -1,246 +1,102 @@
-<!doctype html>
-<html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="pt-br">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Reserva de Assentos — Cinema (estilo Cinemark)</title>
-  <style>
-    :root{
-      --brand-red:#b61f23; /* tom inspirado em cinemas */
-      --bg:#1f2426;
-      --panel:#2b2f31;
-      --seat:#d9e4e6;
-      --seat-border:#0b0b0b;
-      --accent:#f2f2f2;
-      --muted:#9aa0a2;
-      --price:28.00;
-      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-    }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClassicCine</title>
+  <link id="icon" rel="icon" href="img/logo.png">
+  <link rel="stylesheet" href="style.css">
 
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;background:linear-gradient(180deg,#2b2f31 0%, #161819 100%);color:var(--accent)}
-
-    header{
-      background:var(--brand-red);
-      padding:18px 22px;
-      display:flex;align-items:center;gap:20px;justify-content:space-between;
-      box-shadow:0 6px 12px rgba(0,0,0,.35);
-    }
-    .brand{display:flex;align-items:center;gap:12px}
-    .brand .logo{
-      font-weight:800;letter-spacing:6px;font-size:28px;color:white;text-transform:uppercase;
-      font-family: 'Arial Black', Gadget, sans-serif;
-    }
-    .brand .tag{color:rgba(255,255,255,.85);font-size:14px}
-
-    .container{max-width:1100px;margin:28px auto;padding:20px}
-
-    .layout{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:start}
-
-    .auditorium{
-      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.08));
-      border-radius:10px;padding:26px;border:1px solid rgba(255,255,255,0.03);
-    }
-
-    .screen{
-      width:80%;margin:8px auto 26px auto;padding:12px 0;text-align:center;border-radius:6px;background:rgba(0,0,0,.45);color:var(--accent);font-weight:700
-    }
-
-    .seating{
-      display:grid;grid-template-columns:repeat(9, 1fr);gap:14px 18px;justify-items:center;align-items:center;padding:6px 28px
-    }
-
-    .row-labels{display:flex;flex-direction:column;gap:34px;padding-right:10px;margin-left:-18px}
-    .row-label{color:var(--muted);font-weight:700}
-
-    .seat{
-      width:44px;height:44px;border-radius:50%;background:var(--seat);border:3px solid rgba(0,0,0,.9);box-shadow:0 2px 0 rgba(0,0,0,.45) inset;cursor:pointer;
-      display:inline-grid;place-items:center;font-weight:700;color:#263238;user-select:none
-    }
-    .seat.available{opacity:1}
-    .seat.selected{outline:4px solid rgba(255,255,255,0.08);box-shadow:0 6px 0 rgba(0,0,0,.35), 0 0 0 4px rgba(182,31,35,0.12);transform:translateY(-4px)}
-    .seat.unavailable{background:#666;border-color:#3b3b3b;cursor:not-allowed;opacity:.6}
-
-    .screen-label{font-size:18px}
-
-    /* info panel */
-    .panel{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.06));padding:18px;border-radius:10px;border:1px solid rgba(255,255,255,0.03)}
-    .panel h3{margin:0 0 12px 0}
-    .summary{font-size:15px;color:var(--muted);margin-bottom:12px}
-    .selected-list{min-height:64px;padding:8px;border-radius:8px;background:rgba(0,0,0,0.25);display:flex;flex-wrap:wrap;gap:8px}
-    .pill{background:rgba(255,255,255,0.03);padding:6px 10px;border-radius:999px;font-weight:700}
-    .buy{display:inline-block;margin-top:12px;background:var(--brand-red);color:white;padding:12px 16px;border-radius:8px;border:none;cursor:pointer;font-weight:800}
-
-    footer{max-width:1100px;margin:18px auto;color:var(--muted);font-size:13px;text-align:center}
-
-    @media (max-width:900px){
-      .layout{grid-template-columns:1fr}
-      .panel{order:2}
-    }
-
-    /* small helper */
-    .legend{display:flex;gap:12px;align-items:center;margin-top:12px}
-    .legend .marker{width:18px;height:18px;border-radius:6px;margin-right:6px}
-    .legend .available{background:var(--seat)}
-    .legend .selected{background:var(--brand-red)}
-
-  </style>
 </head>
+
 <body>
+
   <header>
-    <div class="brand">
-      <div class="logo">CINEMARK</div>
-      <div class="tag">Reserva online</div>
-    </div>
-    <div class="actions">
-      <button style="background:transparent;border:1px solid rgba(255,255,255,.08);padding:8px 12px;border-radius:8px;color:var(--accent);cursor:pointer">Entrar</button>
+    <div class="">
+      <img class="logo" src="img/logo.png" alt="logotexto">
     </div>
   </header>
+  <main>
 
-  <main class="container">
-    <div class="layout">
+    <h1 class="bv">𝔹𝕖𝕞 𝕧𝕚𝕟𝕕𝕠 𝕒𝕠 ℂ𝕝𝕒𝕤𝕤𝕚𝕔ℂ𝕚𝕟𝕖</h1>
 
-      <section class="auditorium">
-        <div class="screen" role="img" aria-label="Tela de projeção">
-          <div class="screen-label">TELA</div>
-        </div>
+    <h2>Quantidade de Ingressos</h2>
 
-        <div style="display:flex;gap:12px;align-items:flex-start">
-          <div class="row-labels" aria-hidden>
-            <!-- row labels will be injected -->
-          </div>
+    <label for="ingressos">Escolha seu(s) Ingresso(s):</label>
+    <select name="Ingressos" id="ingressos"></select>
 
-          <div style="flex:1">
-            <div class="seating" id="seating" aria-label="Mapa de assentos" role="grid">
-              <!-- seats generated by JS -->
-            </div>
-          </div>
-        </div>
+    <label for="quantidadeIngressos">Quantidade:</label>
+    <input type="number" id="quantidadeIngressos" min="0" max="96" value="0">
 
-        <div class="legend">
-          <div style="display:flex;align-items:center"><div class="marker available"></div><div>Disponível</div></div>
-          <div style="display:flex;align-items:center"><div class="marker selected"></div><div>Selecionado</div></div>
-        </div>
-      </section>
+    <h2>Selecione sua categoria:</h2>
 
-      <aside class="panel" aria-label="Painel de reserva">
-        <h3>Seu pedido</h3>
-        <div class="summary">Selecione os assentos no mapa. Cada assento custa <strong>R$ <span id="price">28.00</span></strong>.</div>
-        <div class="selected-list" id="selectedList" aria-live="polite"></div>
-        <div style="margin-top:12px">Total: <strong>R$ <span id="total">0.00</span></strong></div>
-        <button class="buy" id="buyBtn">Comprar</button>
-        <div style="margin-top:14px;color:var(--muted);font-size:13px">Assentos marcados por letra/numero. Ex.: A1, B5</div>
-      </aside>
+    <label>Categoria:</label>
+    <select id="categoria"></select>
 
-    </div>
+    <button type="button" onclick="gerarCategoria()">Enviar</button><br><br>
+
+    <div id="mostrarcategoria"></div>
+
+    <div id="mostrarfilme"></div>
+
+
+    <h3>Escolha sua comida:</h3>
+
+    <label for="comida">Comida:</label>
+    <select id="comida"></select>
+
+    <label for="quantidadeComida">Quantidade:</label>
+    <input type="number" id="quantidadeComida" min="0" max="10" value="0">
+    <br><br>
+
+    <h3>Escolha sua bebida:</h3>
+
+    <label for="bebida">Bebida:</label>
+    <select id="bebida"></select>
+
+    <label for="quantidadeBebida">Quantidade:</label>
+    <input type="number" id="quantidadeBebida" min="0" max="10" value="0">
+    <br><br>
+
+    <h3>Escolha seu combo:</h3>
+
+    <label for="combo">Comida:</label>
+    <select id="combo"></select>
+
+    <label for="quantidadeCombo">Quantidade:</label>
+    <input type="number" id="quantidadeCombo" min="0" max="10" value="0">
+    <br><br>
+
+    <img class="assentos" src="img/assentos.png" alt="mapa">
+
+    <br><br>
+
+    <select id="letras"></select>
+
+    <select id="numeros"></select>
+
+
+    <br><br>
+
+    <button type="button" onclick="gerarRelatorio()">Atualizar Relatório</button>
+    <br>
+
+    <div id="relatorio"></div>
+
+    <br>
+    <button onclick="window.print()">Gerar PDF do Relatório</button>
   </main>
-
-  <footer>
-    Layout 2D inspirado em interfaces de cinemas. Este é um mockup funcional para fins de demonstração.
-  </footer>
-
-  <script>
-    (function(){
-      const rows = ['A','B','C','D','E','F','G','H'];
-      const cols = 9; // 9 assentos por fileira
-      const price = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--price')) || 28.00;
-
-      const seatingEl = document.getElementById('seating');
-      const rowLabelsEl = document.querySelector('.row-labels');
-      const selectedListEl = document.getElementById('selectedList');
-      const totalEl = document.getElementById('total');
-      const priceEl = document.getElementById('price');
-      priceEl.textContent = price.toFixed(2);
-
-      // Create row labels
-      rows.forEach(r => {
-        const div = document.createElement('div');
-        div.className = 'row-label';
-        div.textContent = r;
-        rowLabelsEl.appendChild(div);
-      });
-
-      // Create seats
-      const seats = [];
-      rows.forEach((r) =>{
-        for(let c=1;c<=cols;c++){
-          const id = `${r}${c}`;
-          const btn = document.createElement('button');
-          btn.className = 'seat available';
-          btn.setAttribute('data-seat', id);
-          btn.setAttribute('aria-label', `Assento ${id}. Disponível`);
-          btn.setAttribute('role','gridcell');
-          btn.innerText = '';
-
-          // For demo: mark a couple as unavailable (comment out to make all free)
-          // if (r==='C' && (c===4 || c===5)){ btn.classList.remove('available'); btn.classList.add('unavailable'); btn.setAttribute('aria-label', `Assento ${id}. Indisponível`); }
-
-          seatingEl.appendChild(btn);
-          seats.push(btn);
-        }
-      });
-
-      // Selection logic
-      const selected = new Set();
-      function updatePanel(){
-        selectedListEl.innerHTML='';
-        let sum=0;
-        if(selected.size===0){
-          selectedListEl.innerHTML='<div style="color:var(--muted);padding:10px">Nenhum assento selecionado</div>';
-        } else {
-          [...selected].sort().forEach(sid=>{
-            const p = document.createElement('div');
-            p.className='pill';
-            p.textContent = sid;
-            selectedListEl.appendChild(p);
-            sum += price;
-          })
-        }
-        totalEl.textContent = sum.toFixed(2);
-      }
-
-      seatingEl.addEventListener('click',(ev)=>{
-        const btn = ev.target.closest('.seat');
-        if(!btn) return;
-        if(btn.classList.contains('unavailable')) return;
-        const id = btn.getAttribute('data-seat');
-        if(btn.classList.contains('selected')){
-          btn.classList.remove('selected');
-          selected.delete(id);
-          btn.setAttribute('aria-label', `Assento ${id}. Disponível`);
-        } else {
-          btn.classList.add('selected');
-          selected.add(id);
-          btn.setAttribute('aria-label', `Assento ${id}. Selecionado`);
-        }
-        updatePanel();
-      });
-
-      document.getElementById('buyBtn').addEventListener('click',()=>{
-        if(selected.size===0){
-          alert('Selecione ao menos um assento antes de comprar.');
-          return;
-        }
-        // Demo: simulate purchase
-        const lista = [...selected].sort().join(', ');
-        alert(`Compra simulada: ${lista} — Total R$ ${ (selected.size*price).toFixed(2) }`);
-        // After purchase, mark seats as unavailable
-        seats.forEach(s => {
-          const id = s.getAttribute('data-seat');
-          if(selected.has(id)){
-            s.classList.remove('selected','available');
-            s.classList.add('unavailable');
-            s.setAttribute('aria-label', `Assento ${id}. Indisponível`);
-          }
-        });
-        selected.clear();
-        updatePanel();
-      });
-
-      // initial panel
-      updatePanel();
-
-    })();
-  </script>
+  <script src="script.js"></script>
 </body>
+<footer>
+  <a href="https://www.youtube.com/@xap%C3%A9uyt">
+    <img class="YouTube" src="img/youtube.png" alt="YouTube">
+  </a>
+  <a href="https://github.com/abnersamuel2010">
+    <img class="GitHub" src="img/GitHub.png" alt="GitHub">
+  </a>
+
+</footer>
+
 </html>
