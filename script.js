@@ -90,7 +90,7 @@ const ingressos = [
     { id: "meia", nome: "Meia-Entrada - 11,99R$", preco: 11.99 },
 ]
 
-function preencherOpcoes() {//é chamada na linha 407
+function preencherOpcoes() {//é chamada na linha 473
     const selectingressos = document.getElementById("ingressos");
     for (let i = 0; i < ingressos.length; i++) {//repete o que esta dentro dos parenteses ate o final da lista
         const item = ingressos[i];
@@ -155,9 +155,9 @@ function gerarCategoria() {
 
     if (categoriaSelecionada == "Terror") {
         const categoriaHTML = `
-<label>Terror:
+Terror:
 <select id="Filmesterror"></select>
-</label>
+
 <button type="button" onclick="gerarFilme()">Enviar</button><br><br>
 
 `;
@@ -174,9 +174,9 @@ function gerarCategoria() {
     }
     if (categoriaSelecionada == "Aventura") {
         const categoriaHTML = `
-<label>Aventura:
+Aventura:
 <select id="Filmesaventura"></select>
-</label>
+
 <button type="button" onclick="gerarFilme()">Enviar</button><br><br>
 
 `;
@@ -193,9 +193,9 @@ function gerarCategoria() {
     }
     if (categoriaSelecionada == "Romance") {
         const categoriaHTML = `
-<label>Romance:
+Romance:
 <select id="Filmesromance"></select>
-</label>
+
 <button type="button" onclick="gerarFilme()">Enviar</button><br><br>
 
 `;
@@ -212,9 +212,9 @@ function gerarCategoria() {
     }
     if (categoriaSelecionada == "Comedia") {
         const categoriaHTML = `
-<label>Comédia:
+Comédia:
 <select id="Filmescomedia"></select>
-</label>
+
 <button type="button" onclick="gerarFilme()">Enviar</button><br><br>
 `;
         document.getElementById("mostrarcategoria").innerHTML = categoriaHTML;
@@ -230,9 +230,9 @@ function gerarCategoria() {
     }
     if (categoriaSelecionada == "Drama") {
         const categoriaHTML = `
-<label>Drama:
+Drama:
 <select id="Filmesdrama"></select>
-</label>
+
 <button type="button" onclick="gerarFilme()">Enviar</button><br><br>
 `;
         document.getElementById("mostrarcategoria").innerHTML = categoriaHTML;
@@ -248,9 +248,9 @@ function gerarCategoria() {
     }
     if (categoriaSelecionada == "Acao") {
         const categoriaHTML = `
-<label>Ação:
+Ação:
 <select id="Filmesacao"></select>
-</label>
+
 <button type="button" onclick="gerarFilme()">Enviar</button><br><br>
 `;
         document.getElementById("mostrarcategoria").innerHTML = categoriaHTML;
@@ -274,7 +274,7 @@ function gerarFilme() {
         if (filmeSelecionado == "Terrifier") {
             const filmeHTML = `
             <img src="img/terrifier.jpg" alt="terrifier" class="tamanhoFilme">
-            
+
             <div class="sinopseFilme">
                 <p>Enquanto cuida de duas crianças no halloween, uma babá encontra uma antiga fita VHS no saco de doces. O filme apresenta três contos de terror, todos ligados entre si por um palhaço assassino. Ao longo da noite, coisas estranhas começam a acontecer na casa e a presença do palhaço parece cada vez mais real.</p>
             </div>
