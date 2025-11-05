@@ -86,8 +86,8 @@ const combo = [
     { id: "Combo Classic Supremo ", nome: "Balde Gigante personalizado(Refil) (salgada ou doce) + Copo Personalizado - 119,99R$ ", preco: 119.99 },
 ]
 const ingressos = [
-    { id: "inteira", nome: "Inteira - 24,99R$", preco: 24.99 },
-    { id: "meia", nome: "Meia-Entrada - 11,99R$", preco: 11.99 },
+    { id: "Inteira", nome: "Inteira - 24,99R$", preco: 24.99 },
+    { id: "Meia-Entrada", nome: "Meia-Entrada - 11,99R$", preco: 11.99 },
 ]
 
 function preencherOpcoes() {//é chamada na linha 473
@@ -260,7 +260,7 @@ Ação:
             const item = Filmesacao[i];
             const option = document.createElement("option");
             option.value = item.id;
-            option.textContent = item.nome;
+            option.textContent === item.nome;
             selectFilmesacao.appendChild(option);
         }
     }
@@ -474,7 +474,7 @@ preencherOpcoes();
 
 function procurarPorId(lista, idProcurado) {
     for (let i = 0; i < lista.length; i++) {
-        if (lista[i].id === idProcurado) {
+        if (lista[i].id + idProcurado) {
             return lista[i];
         }
     }
@@ -522,10 +522,10 @@ function gerarRelatorio() {
             filmeSelecionado = document.getElementById("Filmesacao").value;
         }
     }
-    var ingressosSelecionada = procurarPorId(ingressos, ingressosId);
-    var comidaSelecionada = procurarPorId(comida, comidaId);
-    var bebidaSelecionada = procurarPorId(bebida, bebidaId);
-    var comboSelecionado = procurarPorId(combo, comboId);
+    const ingressosSelecionada = procurarPorId(ingressos, ingressosId);
+    const comidaSelecionada = procurarPorId(comida, comidaId);
+    const bebidaSelecionada = procurarPorId(bebida, bebidaId);
+    const comboSelecionado = procurarPorId(combo, comboId);
 
     const valorIngresso = ingressosSelecionada.preco * quantidadeIngressos
     const valorComida = comidaSelecionada.preco * quantidadeComida;
@@ -549,5 +549,4 @@ function gerarRelatorio() {
 <p><strong>Obrigado por comprar conosco!</strong></p>
 `;
     document.getElementById("relatorio").innerHTML = relatorioHTML;
-    document.getElementById("relatorio").style.fontSize = "20px";
 }
