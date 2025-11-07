@@ -260,7 +260,7 @@ Ação:
             const item = Filmesacao[i];
             const option = document.createElement("option");
             option.value = item.id;
-            option.textContent === item.nome;
+            option.textContent = item.nome;
             selectFilmesacao.appendChild(option);
         }
     }
@@ -474,7 +474,7 @@ preencherOpcoes();
 
 function procurarPorId(lista, idProcurado) {
     for (let i = 0; i < lista.length; i++) {
-        if (lista[i].id + idProcurado) {
+        if (lista[i].id === idProcurado) {
             return lista[i];
         }
     }
@@ -522,10 +522,11 @@ function gerarRelatorio() {
             filmeSelecionado = document.getElementById("Filmesacao").value;
         }
     }
-    const ingressosSelecionada = procurarPorId(ingressos, ingressosId);
-    const comidaSelecionada = procurarPorId(comida, comidaId);
-    const bebidaSelecionada = procurarPorId(bebida, bebidaId);
-    const comboSelecionado = procurarPorId(combo, comboId);
+
+    var ingressosSelecionada = procurarPorId(ingressos, ingressosId);
+    var comidaSelecionada = procurarPorId(comida, comidaId);
+    var bebidaSelecionada = procurarPorId(bebida, bebidaId);
+    var comboSelecionado = procurarPorId(combo, comboId);
 
     const valorIngresso = ingressosSelecionada.preco * quantidadeIngressos
     const valorComida = comidaSelecionada.preco * quantidadeComida;
@@ -533,7 +534,6 @@ function gerarRelatorio() {
     const valorCombo = comboSelecionado.preco * quantidadeCombo;
     const total = valorIngresso + valorComida + valorBebida + valorCombo;
     const assentos = letras + numeros;
-
 
     const relatorioHTML = `
 <h2>Relatório</h2>
